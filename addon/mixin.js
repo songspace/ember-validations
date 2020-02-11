@@ -42,7 +42,10 @@ const pushValidatableObject = function(model, property) {
 };
 
 const lookupValidator = function(validatorName) {
-  let owner = getOwner(this);
+  const owner = getOwner(this);
+  if (owner.isDestroying || owner.isDestroyed) {
+    return [];
+  }
   let service = owner.lookup('service:validations');
   let validators = [];
   let cache;
