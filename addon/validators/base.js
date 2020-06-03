@@ -12,6 +12,7 @@ const {
 
 export default EmberObject.extend({
   init() {
+    this._super(...arguments);
     set(this, 'errors', emberArray());
     this.dependentValidationKeys = emberArray();
     this.conditionals = {

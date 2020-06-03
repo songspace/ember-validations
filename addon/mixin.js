@@ -91,6 +91,7 @@ const lookupValidator = function(validatorName) {
 
 const ArrayValidatorProxy = ArrayProxy.extend(setValidityMixin, {
   init() {
+    this._super(...arguments);
     this._validate();
   },
 
